@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation</title>
+</head>
+<body>
+<h2 th:text="'Simulation ' + ${simulation}"></h2>
+<div style="white-space: pre-wrap" th:text="${env}"></div>
+<h2>History</h2>
+<div th:each="expression : ${expressions}">
+    <a th:href="@{~/www/{simulation}/{id}(simulation=${simulation},id=${expression.index})}">
+    <p th:text="${expression.entry}"></p>
+    </a>
+</div>
+<a th:href="@{~/www/{simulation}(simulation=${simulation})}"><p>refresh</p></a>
+</body>
+</html>
